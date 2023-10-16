@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#1488ba"
-    tools:context=".RegisterAnalystActivity">
+    tools:context=".Administrator.RegisterAnalystActivity">
 
     <TextView
         android:id="@+id/textViewPasswordLine"

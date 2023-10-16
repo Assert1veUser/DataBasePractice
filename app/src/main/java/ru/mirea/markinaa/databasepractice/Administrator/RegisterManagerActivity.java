@@ -1,4 +1,4 @@
-package ru.mirea.markinaa.databasepractice;
+package ru.mirea.markinaa.databasepractice.Administrator;
 
 import androidx.appcompat.app.AppCompatActivity;
 

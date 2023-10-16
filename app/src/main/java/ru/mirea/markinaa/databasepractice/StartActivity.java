@@ -8,6 +8,7 @@ import android.view.View;
 
 import java.sql.DriverManager;
 
+import ru.mirea.markinaa.databasepractice.Administrator.AdministartorActivity;
 import ru.mirea.markinaa.databasepractice.databinding.ActivityStartBinding;
 
 public class StartActivity extends AppCompatActivity {
@@ -39,7 +40,7 @@ public class StartActivity extends AppCompatActivity {
                             if (firstNChars(binding.editTextLogin.getText().toString(), 2)
                                     .equals("ad")){
                                 Intent intent = new Intent(StartActivity.this,
-                                        MainActivity.class);
+                                        AdministartorActivity.class);
                                 intent.putExtra("login", binding.editTextLogin.getText()
                                         .toString());
                                 intent.putExtra("password", binding.editTextPassword.getText()

@@ -1,4 +1,4 @@
-package ru.mirea.markinaa.databasepractice;
+package ru.mirea.markinaa.databasepractice.Administrator;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.view.View;
 
 import ru.mirea.markinaa.databasepractice.databinding.ActivityRegisterBinding;
-import ru.mirea.markinaa.databasepractice.databinding.ActivityStartBinding;
 
 public class RegisterActivity extends AppCompatActivity {
 
