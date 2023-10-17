@@ -8,7 +8,7 @@ import android.view.View;
 
 import java.sql.DriverManager;
 
-import ru.mirea.markinaa.databasepractice.Administrator.AdministartorActivity;
+import ru.mirea.markinaa.databasepractice.Administrator.AdminActivity;
 import ru.mirea.markinaa.databasepractice.databinding.ActivityStartBinding;
 
 public class StartActivity extends AppCompatActivity {
@@ -24,23 +24,18 @@ public class StartActivity extends AppCompatActivity {
         binding.butSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                /*String log = firstNChars(binding.editTextLogin.getText().toString(), 2);
-                if (log.equals("ad")){
-                    Intent intent = new Intent(StartActivity.this, MainActivity.class);
-                    startActivity(intent);
-                }*/
                 Thread gfgThread = new Thread(new Runnable() {
                     @Override
                     public void run() {
                         try  {
                             DriverManager.getConnection(
-                                    "jdbc:postgresql://192.168.0.163:5432/data_center",
+                                    "jdbc:postgresql://172.20.10.2:5432/data_center",
                                     binding.editTextLogin.getText().toString(),
                                     binding.editTextPassword.getText().toString());
                             if (firstNChars(binding.editTextLogin.getText().toString(), 2)
                                     .equals("ad")){
                                 Intent intent = new Intent(StartActivity.this,
-                                        AdministartorActivity.class);
+                                        AdminActivity.class);
                                 intent.putExtra("login", binding.editTextLogin.getText()
                                         .toString());
                                 intent.putExtra("password", binding.editTextPassword.getText()

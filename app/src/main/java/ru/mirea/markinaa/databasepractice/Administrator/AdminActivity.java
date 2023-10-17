@@ -8,7 +8,7 @@ import android.view.View;
 
 import ru.mirea.markinaa.databasepractice.databinding.ActivityMainBinding;
 
-public class AdministartorActivity extends AppCompatActivity {
+public class AdminActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
 
@@ -24,7 +24,7 @@ public class AdministartorActivity extends AppCompatActivity {
         binding.butRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(AdministartorActivity.this, RegisterActivity.class);
+                Intent intent = new Intent(AdminActivity.this, RegisterActivity.class);
                 intent.putExtra("login", loginGet);
                 intent.putExtra("password", passwordGet);
                 startActivity(intent);
@@ -33,7 +33,7 @@ public class AdministartorActivity extends AppCompatActivity {
         binding.butDataCenter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(AdministartorActivity.this, DataCanterActivity.class);
+                Intent intent = new Intent(AdminActivity.this, DataCanterActivity.class);
                 intent.putExtra("login", loginGet);
                 intent.putExtra("password", passwordGet);
                 startActivity(intent);
@@ -42,7 +42,7 @@ public class AdministartorActivity extends AppCompatActivity {
         binding.butEmployees.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(AdministartorActivity.this, EmployeeActivity.class);
+                Intent intent = new Intent(AdminActivity.this, EmployeeGetSetActivity.class);
                 intent.putExtra("login", loginGet);
                 intent.putExtra("password", passwordGet);
                 startActivity(intent);
