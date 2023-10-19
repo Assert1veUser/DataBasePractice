@@ -6,16 +6,15 @@
     android:layout_height="match_parent"
     android:background="#1488ba"
     android:padding="20dp"
-    tools:context=".Administrator.EmployeeGetSetActivity">
+    tools:context=".Administrator.ClientGetSetActivity">
 
     <LinearLayout
-        android:id="@+id/linearLayout"
+        android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.49"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0">
@@ -26,19 +25,19 @@
             android:orientation="horizontal">
 
             <EditText
-                android:id="@+id/editTextSearchLine"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:id="@+id/editTextSearchLineClient"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
-                android:hint="Введите id сотрудника"
+                android:hint="Введите id клиента"
                 android:inputType="text" />
 
             <Button
-                android:id="@+id/butEmployeeSearch"
-                android:layout_width="match_parent"
+                android:id="@+id/butSearchClient"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="2"
+                android:layout_weight="1"
                 android:text="поиск" />
         </LinearLayout>
 
@@ -46,31 +45,27 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:id="@+id/textViewId"
+                    android:id="@+id/textViewIdClient"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Id"
+                    android:text="id"
                     android:textAlignment="center"
                     android:textColor="#FFFFFF"
                     android:textSize="18sp"
                     android:textStyle="bold" />
 
                 <EditText
-                    android:id="@+id/editTextId"
+                    android:id="@+id/editTextIdClient"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:ems="10"
-                    android:inputType="text"
-                    android:scrollbars="vertical"
-                    android:textColor="#000000" />
-
+                    android:inputType="text" />
             </TableRow>
 
             <TableRow
@@ -78,8 +73,8 @@
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:id="@+id/textViewFullName"
-                    android:layout_width="match_parent"
+                    android:id="@+id/textViewFullNameClient"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="ФИО"
                     android:textAlignment="center"
@@ -88,14 +83,12 @@
                     android:textStyle="bold" />
 
                 <EditText
-                    android:id="@+id/editTextFullName"
+                    android:id="@+id/editTextFullNameClient"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:ems="10"
-                    android:inputType="text"
-                    android:textColor="#020202" />
-
+                    android:inputType="text" />
             </TableRow>
 
             <TableRow
@@ -103,80 +96,7 @@
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:id="@+id/textViewJobTitle"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Должность"
-                    android:textAlignment="center"
-                    android:textColor="#FFFFFF"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
-
-                <EditText
-                    android:id="@+id/editTextJobTitle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:inputType="text"
-                    android:textColor="#000000" />
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <TextView
-                    android:id="@+id/textViewPhoneNumber"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Номер телефона"
-                    android:textAlignment="center"
-                    android:textColor="#F6F1F1"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
-
-                <EditText
-                    android:id="@+id/editTextPhoneNumber"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:inputType="text"
-                    android:textColor="#000000" />
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <TextView
-                    android:id="@+id/textViewExperience"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Опыт"
-                    android:textAlignment="center"
-                    android:textColor="#FDFDFD"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
-
-                <EditText
-                    android:id="@+id/editTextExperience"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:inputType="text"
-                    android:textColor="#000000" />
-
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <TextView
-                    android:id="@+id/textViewEmail"
+                    android:id="@+id/textViewEmailClient"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Почта"
@@ -186,13 +106,12 @@
                     android:textStyle="bold" />
 
                 <EditText
-                    android:id="@+id/editTextEmail"
+                    android:id="@+id/editTextEmailClient"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:ems="10"
-                    android:inputType="text"
-                    android:textColor="#000000" />
+                    android:inputType="text" />
             </TableRow>
 
             <TableRow
@@ -200,23 +119,23 @@
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:id="@+id/textViewSalary"
+                    android:id="@+id/textViewPhoneNumberClient"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Зарплата"
+                    android:text="Номер телефона"
                     android:textAlignment="center"
-                    android:textColor="#FDFDFD"
+                    android:textAllCaps="false"
+                    android:textColor="#FFFFFF"
                     android:textSize="18sp"
                     android:textStyle="bold" />
 
                 <EditText
-                    android:id="@+id/editTextSalary"
+                    android:id="@+id/editTextPhoneNumberClient"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:ems="10"
-                    android:inputType="text"
-                    android:textColor="#000000" />
+                    android:inputType="text" />
             </TableRow>
 
             <TableRow
@@ -224,55 +143,98 @@
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:id="@+id/textViewPlaceWork"
+                    android:id="@+id/textViewStatus"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Адрес работы"
-                    android:textAlignment="center"
-                    android:textColor="#FFFEFE"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
-
-                <EditText
-                    android:id="@+id/editTextPlaceWork"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:inputType="text"
-                    android:textColor="#040303" />
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <TextView
-                    android:id="@+id/textViewAge"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Возраст"
+                    android:text="Статус"
                     android:textAlignment="center"
                     android:textColor="#FFFFFF"
                     android:textSize="18sp"
                     android:textStyle="bold" />
 
                 <EditText
-                    android:id="@+id/editTextAge"
+                    android:id="@+id/editTextStatus"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:ems="10"
-                    android:inputType="text"
-                    android:textColor="#000000" />
+                    android:inputType="text" />
             </TableRow>
 
-        </TableLayout>
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
+                <TextView
+                    android:id="@+id/textViewBonus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Бонус"
+                    android:textAlignment="center"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/editTextBonus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:inputType="text" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/textViewMoney"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Деньги"
+                    android:textAlignment="center"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/editTextMoney"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:inputType="text" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/textViewIDManager"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="id менеджера"
+                    android:textAlignment="center"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/editTextIdManagerForClient"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:inputType="text" />
+            </TableRow>
+        </TableLayout>
     </LinearLayout>
 
     <Button
-        android:id="@+id/butSave"
+        android:id="@+id/butSaveClient"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Сохранить"
@@ -280,7 +242,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-        app:layout_constraintVertical_bias="0.215" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
+        app:layout_constraintVertical_bias="0.29" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

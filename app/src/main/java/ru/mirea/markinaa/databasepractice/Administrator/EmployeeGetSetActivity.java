@@ -17,8 +17,15 @@ import ru.mirea.markinaa.databasepractice.databinding.ActivityEmployeeBinding;
 public class EmployeeGetSetActivity extends AppCompatActivity {
 
     private ActivityEmployeeBinding binding;
-    String loginPut;
-    String pasPut;
+    private String id;
+    private String fullName;
+    private String jobTitle;
+    private String phoneNumber;
+    private String experience;
+    private String email;
+    private String salary;
+    private String placeWork;
+    private String age;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,20 +67,103 @@ public class EmployeeGetSetActivity extends AppCompatActivity {
                     public void run() {
                         try  {
                             Connection connection = DriverManager.getConnection(
-                                    "jdbc:postgresql://172.20.10.2:5432/data_center",
+                                    "jdbc:postgresql://192.168.0.163:5432/data_center",
                                     loginGet,
                                     passwordGet);
                             Statement statement = connection.createStatement();
                             System.out.println("DataBase start");
-                            /*ResultSet resultSet = statement.executeQuery("SELECT add_role_analyst( "
-                                    + binding.editTextIdDataEnter.getText().toString()
-                                    + ", "
-                                    + binding.editTextIdAnalyst.getText().toString()
-                                    + ");");
-                            String login = "";
+                            ResultSet resultSet = statement.executeQuery("SELECT * FROM employee " +
+                                    "WHERE id = " + binding.editTextSearchLine.getText().toString() + ";");
                             while (resultSet.next()) {
-                                login = resultSet.getString("add_role_analyst");
-                            }*/
+                                id = resultSet.getString("id");
+                                fullName = resultSet.getString("full_name");
+                                jobTitle = resultSet.getString("job_title");
+                                phoneNumber = resultSet.getString("phone_number");
+                                experience = resultSet.getString("experience");
+                                email = resultSet.getString("email");
+                                salary = resultSet.getString("salary");
+                                placeWork = resultSet.getString("place_of_work");
+                                age = resultSet.getString("age");
+                            }
+                            resultSet.close();
+                            statement.close();
+                            connection.close();
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+                });
+                gfgThread.start();
+                try {
+                    gfgThread.join();
+
+                    binding.editTextAge.setVisibility(View.VISIBLE);
+                    binding.editTextExperience.setVisibility(View.VISIBLE);
+                    binding.editTextFullName.setVisibility(View.VISIBLE);
+                    binding.editTextId.setVisibility(View.VISIBLE);
+                    binding.editTextJobTitle.setVisibility(View.VISIBLE);
+                    binding.editTextPhoneNumber.setVisibility(View.VISIBLE);
+                    binding.editTextPlaceWork.setVisibility(View.VISIBLE);
+                    binding.editTextSalary.setVisibility(View.VISIBLE);
+                    binding.editTextEmail.setVisibility(View.VISIBLE);
+
+                    binding.textViewAge.setVisibility(View.VISIBLE);
+                    binding.textViewExperience.setVisibility(View.VISIBLE);
+                    binding.textViewFullName.setVisibility(View.VISIBLE);
+                    binding.textViewId.setVisibility(View.VISIBLE);
+                    binding.textViewJobTitle.setVisibility(View.VISIBLE);
+                    binding.textViewPhoneNumber.setVisibility(View.VISIBLE);
+                    binding.textViewPlaceWork.setVisibility(View.VISIBLE);
+                    binding.textViewSalary.setVisibility(View.VISIBLE);
+                    binding.textViewEmail.setVisibility(View.VISIBLE);
+
+                    binding.butSave.setVisibility(View.VISIBLE);
+
+                    binding.editTextId.setText(id);
+                    binding.editTextFullName.setText(fullName);
+                    binding.editTextJobTitle.setText(jobTitle);
+                    binding.editTextPhoneNumber.setText(phoneNumber);
+                    binding.editTextExperience.setText(experience);
+                    binding.editTextEmail.setText(email);
+                    binding.editTextSalary.setText(salary);
+                    binding.editTextPlaceWork.setText(placeWork);
+                    binding.editTextAge.setText(age);
+
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+
+            }
+        });
+
+        binding.butSave.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Thread gfgThread = new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        try  {
+                            Connection connection = DriverManager.getConnection(
+                                    "jdbc:postgresql://192.168.0.163:5432/data_center",
+                                    loginGet,
+                                    passwordGet);
+                            Statement statement = connection.createStatement();
+                            System.out.println("DataBase start");
+                            String sql = "UPDATE employee SET " +
+                                    "id = '" + binding.editTextId.getText().toString() + "', " +
+                                    "full_name = '" + binding.editTextFullName.getText().toString() + "', " +
+                                    "job_title = '" + binding.editTextJobTitle.getText().toString() + "', " +
+                                    "phone_number = '" + binding.editTextPhoneNumber.getText().toString() + "', " +
+                                    "experience = '" + binding.editTextExperience.getText().toString() + "', " +
+                                    "email = '" + binding.editTextEmail.getText().toString() + "', " +
+                                    "salary = '" + binding.editTextSalary.getText().toString() + "', " +
+                                    "place_of_work = '" + binding.editTextPlaceWork.getText().toString() + "', " +
+                                    "age = '" + binding.editTextAge.getText().toString() +
+                                    "' WHERE id = " + binding.editTextId.getText().toString() + ";";
+                            String sql1 = "UPDATE employee SET phone_number = '89999999999', experience = '4' WHERE id = '4';";
+                            statement.executeUpdate(sql);
+                            statement.close();
+                            connection.close();
                         } catch (Exception e) {
                             e.printStackTrace();
                         }

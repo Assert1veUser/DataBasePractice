@@ -29,7 +29,7 @@ public class StartActivity extends AppCompatActivity {
                     public void run() {
                         try  {
                             DriverManager.getConnection(
-                                    "jdbc:postgresql://172.20.10.2:5432/data_center",
+                                    "jdbc:postgresql://192.168.0.163:5432/data_center",
                                     binding.editTextLogin.getText().toString(),
                                     binding.editTextPassword.getText().toString());
                             if (firstNChars(binding.editTextLogin.getText().toString(), 2)

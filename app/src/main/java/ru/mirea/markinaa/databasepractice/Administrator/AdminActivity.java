@@ -6,16 +6,16 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-import ru.mirea.markinaa.databasepractice.databinding.ActivityMainBinding;
+import ru.mirea.markinaa.databasepractice.databinding.ActivityAdminBinding;
 
 public class AdminActivity extends AppCompatActivity {
 
-    private ActivityMainBinding binding;
+    private ActivityAdminBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        binding = ActivityAdminBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         Intent intentGet = getIntent();
         String loginGet = intentGet.getStringExtra("login");
@@ -43,6 +43,15 @@ public class AdminActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(AdminActivity.this, EmployeeGetSetActivity.class);
+                intent.putExtra("login", loginGet);
+                intent.putExtra("password", passwordGet);
+                startActivity(intent);
+            }
+        });
+        binding.butClient.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(AdminActivity.this, ClientGetSetActivity.class);
                 intent.putExtra("login", loginGet);
                 intent.putExtra("password", passwordGet);
                 startActivity(intent);
