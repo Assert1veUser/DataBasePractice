@@ -6,9 +6,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import java.sql.Connection;
 import java.sql.DriverManager;
 
 import ru.mirea.markinaa.databasepractice.Administrator.AdminActivity;
+import ru.mirea.markinaa.databasepractice.analyst.AnalystActivity;
 import ru.mirea.markinaa.databasepractice.databinding.ActivityStartBinding;
 
 public class StartActivity extends AppCompatActivity {
@@ -28,7 +30,7 @@ public class StartActivity extends AppCompatActivity {
                     @Override
                     public void run() {
                         try  {
-                            DriverManager.getConnection(
+                            Connection connection = DriverManager.getConnection(
                                     "jdbc:postgresql://192.168.0.163:5432/data_center",
                                     binding.editTextLogin.getText().toString(),
                                     binding.editTextPassword.getText().toString());
@@ -41,15 +43,24 @@ public class StartActivity extends AppCompatActivity {
                                 intent.putExtra("password", binding.editTextPassword.getText()
                                         .toString());
                                 startActivity(intent);
+                            } else if (firstNChars(binding.editTextLogin.getText().toString(), 2)
+                                    .equals("an")) {
+                                Intent intent = new Intent(StartActivity.this,
+                                        AnalystActivity.class);
+                                intent.putExtra("login", binding.editTextLogin.getText()
+                                        .toString());
+                                intent.putExtra("password", binding.editTextPassword.getText()
+                                        .toString());
+                                startActivity(intent);
                             }
+
+                            connection.close();
 
                         } catch (Exception e) {
                             e.printStackTrace();
-
                         }
                     }
                 });
-
                 gfgThread.start();
             }
         });
@@ -58,7 +69,6 @@ public class StartActivity extends AppCompatActivity {
         if (str == null) {
             return null;
         }
-
         return str.length() < n ? str : str.substring(0, n);
     }
 

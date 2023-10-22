@@ -84,6 +84,7 @@ public class EmployeeGetSetActivity extends AppCompatActivity {
                                 salary = resultSet.getString("salary");
                                 placeWork = resultSet.getString("place_of_work");
                                 age = resultSet.getString("age");
+
                             }
                             resultSet.close();
                             statement.close();
@@ -160,7 +161,6 @@ public class EmployeeGetSetActivity extends AppCompatActivity {
                                     "place_of_work = '" + binding.editTextPlaceWork.getText().toString() + "', " +
                                     "age = '" + binding.editTextAge.getText().toString() +
                                     "' WHERE id = " + binding.editTextId.getText().toString() + ";";
-                            String sql1 = "UPDATE employee SET phone_number = '89999999999', experience = '4' WHERE id = '4';";
                             statement.executeUpdate(sql);
                             statement.close();
                             connection.close();

@@ -6,10 +6,10 @@
     android:layout_height="match_parent"
     android:background="#1488ba"
     android:padding="20dp"
-    tools:context=".Administrator.DataCanterActivity">
+    tools:context=".Administrator.ServiceActivity">
 
     <LinearLayout
-        android:id="@+id/linearLayout5"
+        android:id="@+id/linearLayout4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -25,20 +25,20 @@
             android:orientation="horizontal">
 
             <EditText
-                android:id="@+id/editTextSearchDataCenter"
+                android:id="@+id/editTextSearchService"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
-                android:hint="Введите id цода"
+                android:hint="Введите id услуги"
                 android:inputType="text" />
 
             <Button
-                android:id="@+id/butSearchDataCenter"
+                android:id="@+id/butSearchService"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="поиск" />
+                android:text="Поиск" />
         </LinearLayout>
 
         <TableLayout
@@ -50,7 +50,7 @@
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:id="@+id/textViewIdDataCenter"
+                    android:id="@+id/textViewIdService"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Id"
@@ -60,7 +60,7 @@
                     android:textStyle="bold" />
 
                 <EditText
-                    android:id="@+id/editTextIdDataCenter"
+                    android:id="@+id/editTextIdService"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -73,22 +73,23 @@
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:id="@+id/textViewAddressDataCenter"
+                    android:id="@+id/textViewNameService"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Адрес"
+                    android:text="Название"
                     android:textAlignment="center"
                     android:textColor="#FFFFFF"
                     android:textSize="18sp"
                     android:textStyle="bold" />
 
                 <EditText
-                    android:id="@+id/editTextAddressDataCenter"
+                    android:id="@+id/editTextNameService"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:ems="10"
-                    android:inputType="text" />
+                    android:inputType="text"
+                    android:textSize="18sp" />
             </TableRow>
 
             <TableRow
@@ -96,64 +97,17 @@
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:id="@+id/textViewPostCodeDataCenter"
+                    android:id="@+id/textViewPriceService"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Почтовый индекс "
+                    android:text="Цена"
                     android:textAlignment="center"
                     android:textColor="#FFFFFF"
                     android:textSize="18sp"
                     android:textStyle="bold" />
 
                 <EditText
-                    android:id="@+id/editTextPostCodeDataCenter"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:inputType="text" />
-
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <TextView
-                    android:id="@+id/textViewPhoneNumberDataCenter"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Номер телефона"
-                    android:textAlignment="center"
-                    android:textColor="#FFFFFF"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
-
-                <EditText
-                    android:id="@+id/editTextPhoneNumberDataCenter"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:inputType="text" />
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <TextView
-                    android:id="@+id/textViewNumberEmployeeDataCenter"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Кол-во сотрудников"
-                    android:textAlignment="center"
-                    android:textColor="#FFFFFF"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
-
-                <EditText
-                    android:id="@+id/editTextNumberEmployeeDataCenter"
+                    android:id="@+id/editTextPriceService"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -161,11 +115,10 @@
                     android:inputType="text" />
             </TableRow>
         </TableLayout>
-
     </LinearLayout>
 
     <Button
-        android:id="@+id/butSaveDataCenter"
+        android:id="@+id/butSaveService"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="сохранить"
@@ -173,6 +126,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout5"
-        app:layout_constraintVertical_bias="0.123" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout4"
+        app:layout_constraintVertical_bias="0.083" />
 </androidx.constraintlayout.widget.ConstraintLayout>

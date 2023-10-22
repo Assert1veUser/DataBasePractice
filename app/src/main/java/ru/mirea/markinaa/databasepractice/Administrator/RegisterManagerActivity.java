@@ -54,6 +54,10 @@ public class RegisterManagerActivity extends AppCompatActivity {
                             pasPut = log[1].substring(0, log[1].length() - 1);
 
                             System.out.println(login);
+
+                            resultSet.close();
+                            statement.close();
+                            connection.close();
                         } catch (Exception e) {
                             e.printStackTrace();
                         }

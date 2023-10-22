@@ -6,7 +6,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import ru.mirea.markinaa.databasepractice.application.ApplicationActivity;
 import ru.mirea.markinaa.databasepractice.databinding.ActivityAdminBinding;
+import ru.mirea.markinaa.databasepractice.task.TaskActivity;
 
 public class AdminActivity extends AppCompatActivity {
 
@@ -52,6 +54,42 @@ public class AdminActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(AdminActivity.this, ClientGetSetActivity.class);
+                intent.putExtra("login", loginGet);
+                intent.putExtra("password", passwordGet);
+                startActivity(intent);
+            }
+        });
+        binding.buttonEquipment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(AdminActivity.this, EquipmentActivity.class);
+                intent.putExtra("login", loginGet);
+                intent.putExtra("password", passwordGet);
+                startActivity(intent);
+            }
+        });
+        binding.butService.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(AdminActivity.this, ServiceActivity.class);
+                intent.putExtra("login", loginGet);
+                intent.putExtra("password", passwordGet);
+                startActivity(intent);
+            }
+        });
+        binding.butTask.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(AdminActivity.this, TaskActivity.class);
+                intent.putExtra("login", loginGet);
+                intent.putExtra("password", passwordGet);
+                startActivity(intent);
+            }
+        });
+        binding.butApplication.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(AdminActivity.this, ApplicationActivity.class);
                 intent.putExtra("login", loginGet);
                 intent.putExtra("password", passwordGet);
                 startActivity(intent);
