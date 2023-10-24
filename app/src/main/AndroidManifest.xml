@@ -16,6 +16,9 @@
         android:theme="@style/Theme.DataBasePractice"
         tools:targetApi="31">
         <activity
+            android:name=".analyst.TableAnalystActivity"
+            android:exported="false" />
+        <activity
             android:name=".analyst.AnalystActivity"
             android:exported="false" />
         <activity

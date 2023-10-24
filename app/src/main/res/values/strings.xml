@@ -1,3 +1,25 @@
 <resources>
     <string name="app_name">DataBasePractice</string>
+
+    <string-array name="tableListAnalyst">
+        <item>client</item>
+        <item>application</item>
+        <item>check_of_client</item>
+        <item>check_server</item>
+        <item>check_service</item>
+        <item>cpu</item>
+        <item>data_center_equipment</item>
+        <item>dta_center_service</item>
+        <item>drive</item>
+        <item>employee</item>
+        <item>rack</item>
+        <item>ram</item>
+        <item>room</item>
+        <item>section_of_rack</item>
+        <item>server</item>
+        <item>service</item>
+        <item>status</item>
+        <item>task</item>
+        <item>workers</item>
+    </string-array>
 </resources>

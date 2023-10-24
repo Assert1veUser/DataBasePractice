@@ -59,7 +59,7 @@ public class EquipmentActivity extends AppCompatActivity {
                     public void run() {
                         try  {
                             Connection connection = DriverManager.getConnection(
-                                    "jdbc:postgresql://192.168.0.163:5432/data_center",
+                                    "jdbc:postgresql://172.20.10.2:5432/data_center",
                                     loginGet,
                                     passwordGet);
                             Statement statement = connection.createStatement();
@@ -122,7 +122,7 @@ public class EquipmentActivity extends AppCompatActivity {
                     public void run() {
                         try  {
                             Connection connection = DriverManager.getConnection(
-                                    "jdbc:postgresql://192.168.0.163:5432/data_center",
+                                    "jdbc:postgresql://172.20.10.2:5432/data_center",
                                     loginGet,
                                     passwordGet);
                             Statement statement = connection.createStatement();
