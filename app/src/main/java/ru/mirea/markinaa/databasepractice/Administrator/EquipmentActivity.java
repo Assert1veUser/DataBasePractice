@@ -11,6 +11,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
+import ru.mirea.markinaa.databasepractice.DTO.Server;
 import ru.mirea.markinaa.databasepractice.R;
 import ru.mirea.markinaa.databasepractice.databinding.ActivityDataCanterBinding;
 import ru.mirea.markinaa.databasepractice.databinding.ActivityEquipmentBinding;
@@ -18,12 +19,7 @@ import ru.mirea.markinaa.databasepractice.databinding.ActivityEquipmentBinding;
 public class EquipmentActivity extends AppCompatActivity {
 
     private ActivityEquipmentBinding binding;
-    private String id;
-    private String name;
-    private String price;
-    private String idCPU;
-    private String idRam;
-    private String idDrive;
+    private final Server server = new Server();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,7 +55,7 @@ public class EquipmentActivity extends AppCompatActivity {
                     public void run() {
                         try  {
                             Connection connection = DriverManager.getConnection(
-                                    "jdbc:postgresql://172.20.10.2:5432/data_center",
+                                    "jdbc:postgresql://192.168.0.163:5432/data_center",
                                     loginGet,
                                     passwordGet);
                             Statement statement = connection.createStatement();
@@ -67,12 +63,12 @@ public class EquipmentActivity extends AppCompatActivity {
                             ResultSet resultSet = statement.executeQuery("SELECT * FROM server " +
                                     "WHERE id = " + binding.editTextSearchEquipment.getText().toString() + ";");
                             while (resultSet.next()) {
-                                id = resultSet.getString("id");
-                                name = resultSet.getString("name");
-                                price = resultSet.getString("price");
-                                idCPU = resultSet.getString("id_cpu");
-                                idRam = resultSet.getString("id_ram");
-                                idDrive = resultSet.getString("id_drive");
+                                server.setId(resultSet.getString("id"));
+                                server.setName(resultSet.getString("name"));
+                                server.setPrice(resultSet.getString("price"));
+                                server.setIdCpu(resultSet.getString("id_cpu"));
+                                server.setIdRam(resultSet.getString("id_ram"));
+                                server.setIdDrive(resultSet.getString("id_drive"));
                             }
                             resultSet.close();
                             statement.close();
@@ -102,12 +98,12 @@ public class EquipmentActivity extends AppCompatActivity {
 
                     binding.butSaveEquipment.setVisibility(View.VISIBLE);
 
-                    binding.editTextIdEquipment.setText(id);
-                    binding.editTextNameEquipment.setText(name);
-                    binding.editTextPriceEquipment.setText(price);
-                    binding.editTextIdCPU.setText(idCPU);
-                    binding.editTextIdRam.setText(idRam);
-                    binding.editTextIdDrive.setText(idDrive);
+                    binding.editTextIdEquipment.setText(server.getId());
+                    binding.editTextNameEquipment.setText(server.getName());
+                    binding.editTextPriceEquipment.setText(server.getPrice());
+                    binding.editTextIdCPU.setText(server.getIdCpu());
+                    binding.editTextIdRam.setText(server.getIdRam());
+                    binding.editTextIdDrive.setText(server.getIdDrive());
 
                 } catch (InterruptedException e) {
                     e.printStackTrace();
@@ -122,7 +118,7 @@ public class EquipmentActivity extends AppCompatActivity {
                     public void run() {
                         try  {
                             Connection connection = DriverManager.getConnection(
-                                    "jdbc:postgresql://172.20.10.2:5432/data_center",
+                                    "jdbc:postgresql://192.168.0.163:5432/data_center",
                                     loginGet,
                                     passwordGet);
                             Statement statement = connection.createStatement();

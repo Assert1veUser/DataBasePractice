@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 
 import java.sql.Connection;
@@ -12,21 +11,13 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
+import ru.mirea.markinaa.databasepractice.DTO.Employee;
 import ru.mirea.markinaa.databasepractice.databinding.ActivityEmployeeBinding;
 
 public class EmployeeGetSetActivity extends AppCompatActivity {
 
     private ActivityEmployeeBinding binding;
-    private String id;
-    private String fullName;
-    private String jobTitle;
-    private String phoneNumber;
-    private String experience;
-    private String email;
-    private String salary;
-    private String placeWork;
-    private String age;
-
+    private final Employee employee = new Employee();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,7 +58,7 @@ public class EmployeeGetSetActivity extends AppCompatActivity {
                     public void run() {
                         try  {
                             Connection connection = DriverManager.getConnection(
-                                    "jdbc:postgresql://172.20.10.2:5432/data_center",
+                                    "jdbc:postgresql://192.168.0.163:5432/data_center",
                                     loginGet,
                                     passwordGet);
                             Statement statement = connection.createStatement();
@@ -75,15 +66,15 @@ public class EmployeeGetSetActivity extends AppCompatActivity {
                             ResultSet resultSet = statement.executeQuery("SELECT * FROM employee " +
                                     "WHERE id = " + binding.editTextSearchLine.getText().toString() + ";");
                             while (resultSet.next()) {
-                                id = resultSet.getString("id");
-                                fullName = resultSet.getString("full_name");
-                                jobTitle = resultSet.getString("job_title");
-                                phoneNumber = resultSet.getString("phone_number");
-                                experience = resultSet.getString("experience");
-                                email = resultSet.getString("email");
-                                salary = resultSet.getString("salary");
-                                placeWork = resultSet.getString("place_of_work");
-                                age = resultSet.getString("age");
+                                employee.setId(resultSet.getString("id"));
+                                employee.setFullName(resultSet.getString("full_name"));
+                                employee.setJobTitle(resultSet.getString("job_title"));
+                                employee.setPhoneNumber(resultSet.getString("phone_number"));
+                                employee.setExperience(resultSet.getString("experience"));
+                                employee.setEmail(resultSet.getString("email"));
+                                employee.setSalary(resultSet.getString("salary"));
+                                employee.setPlaceOfWork(resultSet.getString("place_of_work"));
+                                employee.setAge(resultSet.getString("age"));
 
                             }
                             resultSet.close();
@@ -120,15 +111,15 @@ public class EmployeeGetSetActivity extends AppCompatActivity {
 
                     binding.butSave.setVisibility(View.VISIBLE);
 
-                    binding.editTextId.setText(id);
-                    binding.editTextFullName.setText(fullName);
-                    binding.editTextJobTitle.setText(jobTitle);
-                    binding.editTextPhoneNumber.setText(phoneNumber);
-                    binding.editTextExperience.setText(experience);
-                    binding.editTextEmail.setText(email);
-                    binding.editTextSalary.setText(salary);
-                    binding.editTextPlaceWork.setText(placeWork);
-                    binding.editTextAge.setText(age);
+                    binding.editTextId.setText(employee.getId());
+                    binding.editTextFullName.setText(employee.getFullName());
+                    binding.editTextJobTitle.setText(employee.getJobTitle());
+                    binding.editTextPhoneNumber.setText(employee.getPhoneNumber());
+                    binding.editTextExperience.setText(employee.getExperience());
+                    binding.editTextEmail.setText(employee.getEmail());
+                    binding.editTextSalary.setText(employee.getSalary());
+                    binding.editTextPlaceWork.setText(employee.getPlaceOfWork());
+                    binding.editTextAge.setText(employee.getAge());
 
                 } catch (InterruptedException e) {
                     e.printStackTrace();
@@ -145,7 +136,7 @@ public class EmployeeGetSetActivity extends AppCompatActivity {
                     public void run() {
                         try  {
                             Connection connection = DriverManager.getConnection(
-                                    "jdbc:postgresql://172.20.10.2:5432/data_center",
+                                    "jdbc:postgresql://192.168.0.163:5432/data_center",
                                     loginGet,
                                     passwordGet);
                             Statement statement = connection.createStatement();

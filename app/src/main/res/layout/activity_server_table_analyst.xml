@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="#1488ba"
     android:padding="20dp"
-    tools:context=".analyst.CheckOfClientTableAnalystActivity">
+    tools:context=".analyst.ServerTableAnalystActivity">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -16,11 +16,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" >
 
-        <TableLayout
-            android:id="@+id/tableLayoutAnalystTable"
+        <HorizontalScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content" >
 
-        </TableLayout>
+            <TableLayout
+                android:id="@+id/tableLayoutServerTableAnalyst"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+
+            </TableLayout>
+        </HorizontalScrollView>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

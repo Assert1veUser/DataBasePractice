@@ -11,6 +11,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
+import ru.mirea.markinaa.databasepractice.DTO.Client;
 import ru.mirea.markinaa.databasepractice.R;
 import ru.mirea.markinaa.databasepractice.databinding.ActivityAdminBinding;
 import ru.mirea.markinaa.databasepractice.databinding.ActivityClientGetSetBinding;
@@ -19,14 +20,7 @@ import ru.mirea.markinaa.databasepractice.databinding.ActivityEmployeeBinding;
 public class ClientGetSetActivity extends AppCompatActivity {
 
     private ActivityClientGetSetBinding binding;
-    private String id;
-    private String fullName;
-    private String email;
-    private String phoneNumber;
-    private String status;
-    private String bonus;
-    private String money;
-    private String idManager;
+    private final Client client = new Client();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,7 +60,7 @@ public class ClientGetSetActivity extends AppCompatActivity {
                     public void run() {
                         try  {
                             Connection connection = DriverManager.getConnection(
-                                    "jdbc:postgresql://172.20.10.2:5432/data_center",
+                                    "jdbc:postgresql://192.168.0.163:5432/data_center",
                                     loginGet,
                                     passwordGet);
                             Statement statement = connection.createStatement();
@@ -74,14 +68,14 @@ public class ClientGetSetActivity extends AppCompatActivity {
                             ResultSet resultSet = statement.executeQuery("SELECT * FROM client " +
                                     "WHERE id = " + binding.editTextSearchLineClient.getText().toString() + ";");
                             while (resultSet.next()) {
-                                id = resultSet.getString("id");
-                                fullName = resultSet.getString("full_name");
-                                email = resultSet.getString("email");
-                                phoneNumber = resultSet.getString("phone_number");
-                                status = resultSet.getString("status");
-                                bonus = resultSet.getString("bonus");
-                                money = resultSet.getString("money");
-                                idManager = resultSet.getString("id_manager");
+                                client.setId(resultSet.getString("id"));
+                                client.setFullName(resultSet.getString("full_name"));
+                                client.setEmail(resultSet.getString("email"));
+                                client.setPhoneNumber(resultSet.getString("phone_number"));
+                                client.setStatus(resultSet.getString("status"));
+                                client.setBonus(resultSet.getString("bonus"));
+                                client.setMoney(resultSet.getString("money"));
+                                client.setIdManager(resultSet.getString("id_manager"));
                             }
                             resultSet.close();
                             statement.close();
@@ -115,14 +109,14 @@ public class ClientGetSetActivity extends AppCompatActivity {
 
                     binding.butSaveClient.setVisibility(View.VISIBLE);
 
-                    binding.editTextIdClient.setText(id);
-                    binding.editTextFullNameClient.setText(fullName);
-                    binding.editTextEmailClient.setText(email);
-                    binding.editTextPhoneNumberClient.setText(phoneNumber);
-                    binding.editTextStatus.setText(status);
-                    binding.editTextBonus.setText(bonus);
-                    binding.editTextMoney.setText(money);
-                    binding.editTextIdManagerForClient.setText(idManager);
+                    binding.editTextIdClient.setText(client.getId());
+                    binding.editTextFullNameClient.setText(client.getFullName());
+                    binding.editTextEmailClient.setText(client.getEmail());
+                    binding.editTextPhoneNumberClient.setText(client.getPhoneNumber());
+                    binding.editTextStatus.setText(client.getStatus());
+                    binding.editTextBonus.setText(client.getBonus());
+                    binding.editTextMoney.setText(client.getMoney());
+                    binding.editTextIdManagerForClient.setText(client.getIdManager());
 
 
                 } catch (InterruptedException e) {

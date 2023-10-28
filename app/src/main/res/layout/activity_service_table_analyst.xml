@@ -6,21 +6,22 @@
     android:layout_height="match_parent"
     android:background="#1488ba"
     android:padding="20dp"
-    tools:context=".analyst.CheckOfClientTableAnalystActivity">
+    tools:context=".analyst.ServiceTableAnalystActivity">
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" >
+        android:layout_height="match_parent" >
 
-        <TableLayout
-            android:id="@+id/tableLayoutAnalystTable"
+        <HorizontalScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content" >
 
-        </TableLayout>
+            <TableLayout
+                android:id="@+id/tableLayoutsServiceTableAnalyst"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+
+            </TableLayout>
+        </HorizontalScrollView>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

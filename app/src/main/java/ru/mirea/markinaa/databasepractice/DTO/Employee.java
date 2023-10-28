@@ -1,8 +1,6 @@
 package ru.mirea.markinaa.databasepractice.DTO;
 
-import android.health.connect.datatypes.StepsCadenceRecord;
-
-public class Emplyee {
+public class Employee {
     private String id;
     private String fullName;
     private String jobTitle;

@@ -11,18 +11,13 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
+import ru.mirea.markinaa.databasepractice.DTO.Room;
 import ru.mirea.markinaa.databasepractice.databinding.ActivityDataCanterBinding;
 
 public class DataCanterActivity extends AppCompatActivity {
 
     private ActivityDataCanterBinding binding;
-    private String id;
-    private String address;
-    private String postCode;
-
-    private String phoneNumber;
-    private String numberEmployee;
-
+    private final Room room = new Room();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,7 +52,7 @@ public class DataCanterActivity extends AppCompatActivity {
                     public void run() {
                         try  {
                             Connection connection = DriverManager.getConnection(
-                                    "jdbc:postgresql://172.20.10.2:5432/data_center",
+                                    "jdbc:postgresql://192.168.0.163:5432/data_center",
                                     loginGet,
                                     passwordGet);
                             Statement statement = connection.createStatement();
@@ -65,11 +60,11 @@ public class DataCanterActivity extends AppCompatActivity {
                             ResultSet resultSet = statement.executeQuery("SELECT * FROM room " +
                                     "WHERE id = " + binding.editTextSearchDataCenter.getText().toString() + ";");
                             while (resultSet.next()) {
-                                id = resultSet.getString("id");
-                                address = resultSet.getString("address");
-                                postCode = resultSet.getString("postcode");
-                                phoneNumber = resultSet.getString("phone_number");
-                                numberEmployee = resultSet.getString("number_of_employee");
+                                room.setId(resultSet.getString("id"));
+                                room.setAddress(resultSet.getString("address"));
+                                room.setPostcode(resultSet.getString("postcode"));
+                                room.setPhoneNumber(resultSet.getString("phone_number"));
+                                room.setNumberOfEmployee(resultSet.getString("number_of_employee"));
                             }
                             resultSet.close();
                             statement.close();
@@ -97,11 +92,11 @@ public class DataCanterActivity extends AppCompatActivity {
 
                     binding.butSaveDataCenter.setVisibility(View.VISIBLE);
 
-                    binding.editTextIdDataCenter.setText(id);
-                    binding.editTextAddressDataCenter.setText(address);
-                    binding.editTextPostCodeDataCenter.setText(postCode);
-                    binding.editTextPhoneNumberDataCenter.setText(phoneNumber);
-                    binding.editTextNumberEmployeeDataCenter.setText(numberEmployee);
+                    binding.editTextIdDataCenter.setText(room.getId());
+                    binding.editTextAddressDataCenter.setText(room.getAddress());
+                    binding.editTextPostCodeDataCenter.setText(room.getPostcode());
+                    binding.editTextPhoneNumberDataCenter.setText(room.getPhoneNumber());
+                    binding.editTextNumberEmployeeDataCenter.setText(room.getNumberOfEmployee());
 
                 } catch (InterruptedException e) {
                     e.printStackTrace();
@@ -117,7 +112,7 @@ public class DataCanterActivity extends AppCompatActivity {
                     public void run() {
                         try  {
                             Connection connection = DriverManager.getConnection(
-                                    "jdbc:postgresql://172.20.10.2:5432/data_center",
+                                    "jdbc:postgresql://192.168.0.163:5432/data_center",
                                     loginGet,
                                     passwordGet);
                             Statement statement = connection.createStatement();

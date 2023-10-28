@@ -16,7 +16,76 @@
         android:theme="@style/Theme.DataBasePractice"
         tools:targetApi="31">
         <activity
-            android:name=".analyst.TableAnalystActivity"
+            android:name=".manager.ServiceTableManagerActivity"
+            android:exported="false" />
+        <activity
+            android:name=".manager.EquipmentAllTableManagerActivity"
+            android:exported="false" />
+        <activity
+            android:name=".manager.EquipmentOneTableManagerActivity"
+            android:exported="false" />
+        <activity
+            android:name=".manager.EquipmentTableManagerActivity"
+            android:exported="false" />
+        <activity
+            android:name=".manager.ClientAllTableManagerActivity"
+            android:exported="false" />
+        <activity
+            android:name=".manager.ClientTableManagerActivity"
+            android:exported="false" />
+        <activity
+            android:name=".manager.ManagerActivity"
+            android:exported="false" />
+        <activity
+            android:name=".analyst.WorkersTableAnalystActivity"
+            android:exported="false" />
+        <activity
+            android:name=".analyst.StatusTableAnalystActivity"
+            android:exported="false" />
+        <activity
+            android:name=".analyst.ServiceTableAnalystActivity"
+            android:exported="false" />
+        <activity
+            android:name=".analyst.ServerTableAnalystActivity"
+            android:exported="false" />
+        <activity
+            android:name=".analyst.SectionOfRackTableAnalystActivity"
+            android:exported="false" />
+        <activity
+            android:name=".analyst.RoomTableAnalystActivity"
+            android:exported="false" />
+        <activity
+            android:name=".analyst.RamTableAnalystActivity"
+            android:exported="false" />
+        <activity
+            android:name=".analyst.RackTableAnalystActivity"
+            android:exported="false" />
+        <activity
+            android:name=".analyst.EmployeeTableAnalystActivity"
+            android:exported="false" />
+        <activity
+            android:name=".analyst.DriveTableAnalystActivity"
+            android:exported="false" />
+        <activity
+            android:name=".analyst.DataCenterServiceTableAnalystActivity"
+            android:exported="false" />
+        <activity
+            android:name=".analyst.DataCenterEquipmentTableAnalystActivity"
+            android:exported="false" />
+        <activity
+            android:name=".analyst.CpyTableAnalystActivity"
+            android:exported="false" />
+        <activity
+            android:name=".analyst.ClientTableAnalystActivity"
+            android:exported="false" />
+        <activity
+            android:name=".analyst.CheckServiceTableAnalystActivity"
+            android:exported="false" />
+        <activity
+            android:name=".analyst.CheckServerTableAnalystActivity"
+            android:exported="false" />
+        <activity
+            android:name=".analyst.CheckOfClientTableAnalystActivity"
             android:exported="false" />
         <activity
             android:name=".analyst.AnalystActivity"

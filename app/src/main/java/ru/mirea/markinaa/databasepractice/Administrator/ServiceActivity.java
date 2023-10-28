@@ -11,6 +11,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
+import ru.mirea.markinaa.databasepractice.DTO.Service;
 import ru.mirea.markinaa.databasepractice.R;
 import ru.mirea.markinaa.databasepractice.databinding.ActivityEquipmentBinding;
 import ru.mirea.markinaa.databasepractice.databinding.ActivityServiceBinding;
@@ -18,9 +19,7 @@ import ru.mirea.markinaa.databasepractice.databinding.ActivityServiceBinding;
 public class ServiceActivity extends AppCompatActivity {
 
     private ActivityServiceBinding binding;
-    private String id;
-    private String name;
-    private String price;
+    private final Service service = new Service();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,7 +49,7 @@ public class ServiceActivity extends AppCompatActivity {
                     public void run() {
                         try  {
                             Connection connection = DriverManager.getConnection(
-                                    "jdbc:postgresql://172.20.10.2:5432/data_center",
+                                    "jdbc:postgresql://192.168.0.163:5432/data_center",
                                     loginGet,
                                     passwordGet);
                             Statement statement = connection.createStatement();
@@ -58,9 +57,9 @@ public class ServiceActivity extends AppCompatActivity {
                             ResultSet resultSet = statement.executeQuery("SELECT * FROM service " +
                                     "WHERE id = " + binding.editTextSearchService.getText().toString() + ";");
                             while (resultSet.next()) {
-                                id = resultSet.getString("id");
-                                name = resultSet.getString("name");
-                                price = resultSet.getString("price");
+                                service.setId(resultSet.getString("id"));
+                                service.setName(resultSet.getString("name"));
+                                service.setPrice(resultSet.getString("price"));
                             }
                             resultSet.close();
                             statement.close();
@@ -84,9 +83,9 @@ public class ServiceActivity extends AppCompatActivity {
 
                     binding.butSaveService.setVisibility(View.VISIBLE);
 
-                    binding.editTextIdService.setText(id);
-                    binding.editTextNameService.setText(name);
-                    binding.editTextPriceService.setText(price);
+                    binding.editTextIdService.setText(service.getId());
+                    binding.editTextNameService.setText(service.getName());
+                    binding.editTextPriceService.setText(service.getPrice());
 
                 } catch (InterruptedException e) {
                     e.printStackTrace();
@@ -101,7 +100,7 @@ public class ServiceActivity extends AppCompatActivity {
                     public void run() {
                         try  {
                             Connection connection = DriverManager.getConnection(
-                                    "jdbc:postgresql://172.20.10.2:5432/data_center",
+                                    "jdbc:postgresql://192.168.0.163:5432/data_center",
                                     loginGet,
                                     passwordGet);
                             Statement statement = connection.createStatement();

@@ -12,6 +12,7 @@ import java.sql.DriverManager;
 import ru.mirea.markinaa.databasepractice.Administrator.AdminActivity;
 import ru.mirea.markinaa.databasepractice.analyst.AnalystActivity;
 import ru.mirea.markinaa.databasepractice.databinding.ActivityStartBinding;
+import ru.mirea.markinaa.databasepractice.manager.ManagerActivity;
 
 public class StartActivity extends AppCompatActivity {
 
@@ -31,7 +32,7 @@ public class StartActivity extends AppCompatActivity {
                     public void run() {
                         try  {
                             Connection connection = DriverManager.getConnection(
-                                    "jdbc:postgresql://172.20.10.2:5432/data_center",
+                                    "jdbc:postgresql://192.168.0.163:5432/data_center",
                                     binding.editTextLogin.getText().toString(),
                                     binding.editTextPassword.getText().toString());
                             if (firstNChars(binding.editTextLogin.getText().toString(), 2)
@@ -47,6 +48,15 @@ public class StartActivity extends AppCompatActivity {
                                     .equals("an")) {
                                 Intent intent = new Intent(StartActivity.this,
                                         AnalystActivity.class);
+                                intent.putExtra("login", binding.editTextLogin.getText()
+                                        .toString());
+                                intent.putExtra("password", binding.editTextPassword.getText()
+                                        .toString());
+                                startActivity(intent);
+                            } else if(firstNChars(binding.editTextLogin.getText().toString(), 2)
+                                    .equals("ma")){
+                                Intent intent = new Intent(StartActivity.this,
+                                        ManagerActivity.class);
                                 intent.putExtra("login", binding.editTextLogin.getText()
                                         .toString());
                                 intent.putExtra("password", binding.editTextPassword.getText()
