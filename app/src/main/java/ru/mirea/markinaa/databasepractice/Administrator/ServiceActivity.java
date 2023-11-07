@@ -40,6 +40,7 @@ public class ServiceActivity extends AppCompatActivity {
         binding.editTextPriceService.setVisibility(View.GONE);
 
         binding.butSaveService.setVisibility(View.GONE);
+        binding.butDeleteService.setVisibility(View.GONE);
 
         binding.butSearchService.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -82,6 +83,7 @@ public class ServiceActivity extends AppCompatActivity {
                     binding.editTextPriceService.setVisibility(View.VISIBLE);
 
                     binding.butSaveService.setVisibility(View.VISIBLE);
+                    binding.butDeleteService.setVisibility(View.VISIBLE);
 
                     binding.editTextIdService.setText(service.getId());
                     binding.editTextNameService.setText(service.getName());
@@ -110,6 +112,33 @@ public class ServiceActivity extends AppCompatActivity {
                                     "name = '" + binding.editTextNameService.getText().toString() + "', " +
                                     "price = '" + binding.editTextPriceService.getText().toString() +
                                     "' WHERE id = " + binding.editTextIdService.getText().toString() + ";";
+                            statement.executeUpdate(sql);
+                            statement.close();
+                            connection.close();
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+                });
+                gfgThread.start();
+            }
+        });
+        binding.butDeleteService.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Thread gfgThread = new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        try  {
+                            Connection connection = DriverManager.getConnection(
+                                    "jdbc:postgresql://192.168.0.163:5432/data_center",
+                                    loginGet,
+                                    passwordGet);
+                            Statement statement = connection.createStatement();
+                            System.out.println("DataBase start");
+                            String sql = "DELETE FROM service WHERE id = " +
+                                    binding.editTextIdService.getText().toString() +
+                                    ";";
                             statement.executeUpdate(sql);
                             statement.close();
                             connection.close();

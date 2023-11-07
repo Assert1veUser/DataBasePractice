@@ -40,5 +40,14 @@ public class TaskActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        binding.butPerformTask.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(TaskActivity.this, PerformTaskActivity.class);
+                intent.putExtra("login", loginGet);
+                intent.putExtra("password", passwordGet);
+                startActivity(intent);
+            }
+        });
     }
 }

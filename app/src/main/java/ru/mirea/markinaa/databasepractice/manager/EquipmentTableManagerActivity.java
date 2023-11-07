@@ -30,7 +30,7 @@ public class EquipmentTableManagerActivity extends AppCompatActivity {
         binding.butEquipmentAllTableManager.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(EquipmentTableManagerActivity.this, ServerTableAnalystActivity.class);
+                Intent intent = new Intent(EquipmentTableManagerActivity.this, EquipmentCheckAllActivity.class);
                 intent.putExtra("login", loginGet);
                 intent.putExtra("password", passwordGet);
                 startActivity(intent);

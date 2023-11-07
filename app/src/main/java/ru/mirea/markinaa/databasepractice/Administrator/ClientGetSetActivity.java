@@ -47,6 +47,7 @@ public class ClientGetSetActivity extends AppCompatActivity {
         binding.textViewEmailClient.setVisibility(View.GONE);
 
         binding.butSaveClient.setVisibility(View.GONE);
+        binding.butDeleteClient.setVisibility(View.GONE);
 
         Intent intentGet = getIntent();
         String loginGet = intentGet.getStringExtra("login");
@@ -108,6 +109,7 @@ public class ClientGetSetActivity extends AppCompatActivity {
                     binding.textViewEmailClient.setVisibility(View.VISIBLE);
 
                     binding.butSaveClient.setVisibility(View.VISIBLE);
+                    binding.butDeleteClient.setVisibility(View.VISIBLE);
 
                     binding.editTextIdClient.setText(client.getId());
                     binding.editTextFullNameClient.setText(client.getFullName());
@@ -148,6 +150,33 @@ public class ClientGetSetActivity extends AppCompatActivity {
                                     "money = '" + binding.editTextMoney.getText().toString() + "', " +
                                     "id_manager = '" + binding.editTextIdManagerForClient.getText().toString() +
                                     "' WHERE id = " + binding.editTextIdClient.getText().toString() + ";";
+                            statement.executeUpdate(sql);
+                            statement.close();
+                            connection.close();
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+                });
+                gfgThread.start();
+            }
+        });
+        binding.butDeleteClient.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Thread gfgThread = new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        try  {
+                            Connection connection = DriverManager.getConnection(
+                                    "jdbc:postgresql://192.168.0.163:5432/data_center",
+                                    loginGet,
+                                    passwordGet);
+                            Statement statement = connection.createStatement();
+                            System.out.println("DataBase start");
+                            String sql = "DELETE FROM client WHERE id = " +
+                                    binding.editTextIdClient.getText().toString() +
+                                    ";";
                             statement.executeUpdate(sql);
                             statement.close();
                             connection.close();

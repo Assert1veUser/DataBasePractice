@@ -49,6 +49,7 @@ public class EmployeeGetSetActivity extends AppCompatActivity {
         binding.textViewEmail.setVisibility(View.GONE);
 
         binding.butSave.setVisibility(View.GONE);
+        binding.butDelete.setVisibility(View.GONE);
 
         binding.butEmployeeSearch.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -110,6 +111,7 @@ public class EmployeeGetSetActivity extends AppCompatActivity {
                     binding.textViewEmail.setVisibility(View.VISIBLE);
 
                     binding.butSave.setVisibility(View.VISIBLE);
+                    binding.butDelete.setVisibility(View.VISIBLE);
 
                     binding.editTextId.setText(employee.getId());
                     binding.editTextFullName.setText(employee.getFullName());
@@ -152,6 +154,34 @@ public class EmployeeGetSetActivity extends AppCompatActivity {
                                     "place_of_work = '" + binding.editTextPlaceWork.getText().toString() + "', " +
                                     "age = '" + binding.editTextAge.getText().toString() +
                                     "' WHERE id = " + binding.editTextId.getText().toString() + ";";
+                            statement.executeUpdate(sql);
+                            statement.close();
+                            connection.close();
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+                });
+                gfgThread.start();
+            }
+        });
+
+        binding.butDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Thread gfgThread = new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        try  {
+                            Connection connection = DriverManager.getConnection(
+                                    "jdbc:postgresql://192.168.0.163:5432/data_center",
+                                    loginGet,
+                                    passwordGet);
+                            Statement statement = connection.createStatement();
+                            System.out.println("DataBase start");
+                            String sql = "DELETE FROM employee WHERE id = " +
+                                    binding.editTextId.getText().toString() +
+                                    ";";
                             statement.executeUpdate(sql);
                             statement.close();
                             connection.close();

@@ -42,6 +42,7 @@ public class DataCanterActivity extends AppCompatActivity {
         binding.editTextNumberEmployeeDataCenter.setVisibility(View.GONE);
 
         binding.butSaveDataCenter.setVisibility(View.GONE);
+        binding.butDeleteDataCenter.setVisibility(View.GONE);
 
 
         binding.butSearchDataCenter.setOnClickListener(new View.OnClickListener() {
@@ -91,6 +92,7 @@ public class DataCanterActivity extends AppCompatActivity {
                     binding.editTextNumberEmployeeDataCenter.setVisibility(View.VISIBLE);
 
                     binding.butSaveDataCenter.setVisibility(View.VISIBLE);
+                    binding.butDeleteDataCenter.setVisibility(View.VISIBLE);
 
                     binding.editTextIdDataCenter.setText(room.getId());
                     binding.editTextAddressDataCenter.setText(room.getAddress());
@@ -124,6 +126,33 @@ public class DataCanterActivity extends AppCompatActivity {
                                     "phone_number = '" + binding.editTextPhoneNumberDataCenter.getText().toString() + "', " +
                                     "number_of_employee = '" + binding.editTextNumberEmployeeDataCenter.getText().toString() +
                                     "' WHERE id = " + binding.editTextIdDataCenter.getText().toString() + ";";
+                            statement.executeUpdate(sql);
+                            statement.close();
+                            connection.close();
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+                });
+                gfgThread.start();
+            }
+        });
+        binding.butDeleteDataCenter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Thread gfgThread = new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        try  {
+                            Connection connection = DriverManager.getConnection(
+                                    "jdbc:postgresql://192.168.0.163:5432/data_center",
+                                    loginGet,
+                                    passwordGet);
+                            Statement statement = connection.createStatement();
+                            System.out.println("DataBase start");
+                            String sql = "DELETE FROM room WHERE id = " +
+                                    binding.editTextIdDataCenter.getText().toString() +
+                                    ";";
                             statement.executeUpdate(sql);
                             statement.close();
                             connection.close();

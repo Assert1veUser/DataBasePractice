@@ -8,6 +8,30 @@
     android:padding="20dp"
     tools:context=".Administrator.DataCanterActivity">
 
+    <Button
+        android:id="@+id/butDeleteDataCenter"
+        android:layout_width="130dp"
+        android:layout_height="47dp"
+        android:text="Удалить"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.24"
+        app:layout_constraintStart_toEndOf="@+id/butSaveDataCenter"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout5"
+        app:layout_constraintVertical_bias="0.135" />
+
+    <Button
+        android:id="@+id/butSaveDataCenter"
+        android:layout_width="130dp"
+        android:layout_height="47dp"
+        android:text="сохранить"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.213"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout5"
+        app:layout_constraintVertical_bias="0.138" />
+
     <LinearLayout
         android:id="@+id/linearLayout5"
         android:layout_width="match_parent"
@@ -164,15 +188,4 @@
 
     </LinearLayout>
 
-    <Button
-        android:id="@+id/butSaveDataCenter"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="сохранить"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout5"
-        app:layout_constraintVertical_bias="0.123" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -6,22 +6,34 @@
     android:layout_height="match_parent"
     android:background="#1488ba"
     android:padding="20dp"
-    tools:context=".Administrator.EquipmentActivity">
+    tools:context=".manager.EquipmentCheckOneActivity">
 
     <Button
-        android:id="@+id/butDeleteEquipment"
-        android:layout_width="130dp"
-        android:layout_height="47dp"
+        android:id="@+id/buttonDeleteEquipmentOne"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="удалить"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.321"
-        app:layout_constraintStart_toEndOf="@+id/butSaveEquipment"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
-        app:layout_constraintVertical_bias="0.127" />
+        app:layout_constraintHorizontal_bias="0.814"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout7"
+        app:layout_constraintVertical_bias="0.15" />
+
+    <Button
+        android:id="@+id/buttonSaveEquipmentOne"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="сохранить"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.252"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout7"
+        app:layout_constraintVertical_bias="0.159" />
 
     <LinearLayout
-        android:id="@+id/linearLayout3"
+        android:id="@+id/linearLayout7"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -37,20 +49,29 @@
             android:orientation="horizontal">
 
             <EditText
-                android:id="@+id/editTextSearchEquipment"
+                android:id="@+id/editTextIDClientCheckOne"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:ems="10"
+                android:hint="id клиента"
+                android:inputType="text" />
+
+            <EditText
+                android:id="@+id/editTextText2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
-                android:hint="Введите id сотрудника"
+                android:hint="id оборудования"
                 android:inputType="text" />
 
             <Button
-                android:id="@+id/butSearchEquipment"
+                android:id="@+id/button2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Поиск" />
+                android:layout_weight="0"
+                android:text="поиск" />
         </LinearLayout>
 
         <TableLayout
@@ -62,22 +83,23 @@
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:id="@+id/textViewIdEquipment"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/textViewIDServerEquipment"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Id"
+                    android:text="id_server"
                     android:textAlignment="center"
                     android:textColor="#FFFFFF"
                     android:textSize="18sp"
                     android:textStyle="bold" />
 
                 <EditText
-                    android:id="@+id/editTextIdEquipment"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/editTextIDServerEquipment"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:ems="10"
                     android:inputType="text" />
+
             </TableRow>
 
             <TableRow
@@ -85,10 +107,10 @@
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:id="@+id/textViewNameEquipment"
+                    android:id="@+id/textViewIDRoomEquipment"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Имя"
+                    android:text="id_room"
                     android:textAlignment="center"
                     android:textAllCaps="false"
                     android:textColor="#FFFFFF"
@@ -96,7 +118,31 @@
                     android:textStyle="bold" />
 
                 <EditText
-                    android:id="@+id/editTextNameEquipment"
+                    android:id="@+id/editTextIDRoomEquipment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:inputType="text" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/textViewIDCheckEquipment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="id_check"
+                    android:textAlignment="center"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/editTextIDCheckEquipment"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -109,17 +155,17 @@
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:id="@+id/textViewPriceEquipment"
+                    android:id="@+id/textViewAmountOfDays"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Цена"
+                    android:text="amount_of_days"
                     android:textAlignment="center"
                     android:textColor="#FFFFFF"
                     android:textSize="18sp"
                     android:textStyle="bold" />
 
                 <EditText
-                    android:id="@+id/editTextPriceEquipment"
+                    android:id="@+id/editTextAmountOfDaysEquipment"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -132,18 +178,17 @@
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:id="@+id/textViewIdCPU"
+                    android:id="@+id/textViewPriceEquipmentOne"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Id CPU"
+                    android:text="price"
                     android:textAlignment="center"
-                    android:textAllCaps="false"
                     android:textColor="#FFFFFF"
                     android:textSize="18sp"
                     android:textStyle="bold" />
 
                 <EditText
-                    android:id="@+id/editTextIdCPU"
+                    android:id="@+id/editTextPriceEquipmentOne"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -156,40 +201,17 @@
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:id="@+id/textViewIdRam"
+                    android:id="@+id/textViewNumberOfServers"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Id Ram"
+                    android:text="number_of_servers"
                     android:textAlignment="center"
                     android:textColor="#FFFFFF"
                     android:textSize="18sp"
                     android:textStyle="bold" />
 
                 <EditText
-                    android:id="@+id/editTextIdRam"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:inputType="text" />
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <TextView
-                    android:id="@+id/textViewIdDrive"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Id Drive"
-                    android:textAlignment="center"
-                    android:textColor="#FFFFFF"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
-
-                <EditText
-                    android:id="@+id/editTextIdDrive"
+                    android:id="@+id/editTextNumberOfServers"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -197,17 +219,7 @@
                     android:inputType="text" />
             </TableRow>
         </TableLayout>
+
     </LinearLayout>
 
-    <Button
-        android:id="@+id/butSaveEquipment"
-        android:layout_width="130dp"
-        android:layout_height="47dp"
-        android:text="Сохранить"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.192"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
-        app:layout_constraintVertical_bias="0.135" />
 </androidx.constraintlayout.widget.ConstraintLayout>

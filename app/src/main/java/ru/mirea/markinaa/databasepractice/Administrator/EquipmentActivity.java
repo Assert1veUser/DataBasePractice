@@ -46,6 +46,7 @@ public class EquipmentActivity extends AppCompatActivity {
         binding.editTextIdRam.setVisibility(View.GONE);
 
         binding.butSaveEquipment.setVisibility(View.GONE);
+        binding.butDeleteEquipment.setVisibility(View.GONE);
 
         binding.butSearchEquipment.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -97,6 +98,7 @@ public class EquipmentActivity extends AppCompatActivity {
                     binding.editTextIdRam.setVisibility(View.VISIBLE);
 
                     binding.butSaveEquipment.setVisibility(View.VISIBLE);
+                    binding.butDeleteEquipment.setVisibility(View.VISIBLE);
 
                     binding.editTextIdEquipment.setText(server.getId());
                     binding.editTextNameEquipment.setText(server.getName());
@@ -131,6 +133,33 @@ public class EquipmentActivity extends AppCompatActivity {
                                     "id_ram = '" + binding.editTextIdRam.getText().toString() + "', " +
                                     "id_drive = '" + binding.editTextIdDrive.getText().toString() +
                                     "' WHERE id = " + binding.editTextIdEquipment.getText().toString() + ";";
+                            statement.executeUpdate(sql);
+                            statement.close();
+                            connection.close();
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+                });
+                gfgThread.start();
+            }
+        });
+        binding.butDeleteEquipment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Thread gfgThread = new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        try  {
+                            Connection connection = DriverManager.getConnection(
+                                    "jdbc:postgresql://192.168.0.163:5432/data_center",
+                                    loginGet,
+                                    passwordGet);
+                            Statement statement = connection.createStatement();
+                            System.out.println("DataBase start");
+                            String sql = "DELETE FROM server WHERE id = " +
+                                    binding.editTextIdEquipment.getText().toString() +
+                                    ";";
                             statement.executeUpdate(sql);
                             statement.close();
                             connection.close();

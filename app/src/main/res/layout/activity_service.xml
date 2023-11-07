@@ -8,6 +8,30 @@
     android:padding="20dp"
     tools:context=".Administrator.ServiceActivity">
 
+    <Button
+        android:id="@+id/butDeleteService"
+        android:layout_width="130dp"
+        android:layout_height="47dp"
+        android:text="удалить"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.191"
+        app:layout_constraintStart_toEndOf="@+id/butSaveService"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout4"
+        app:layout_constraintVertical_bias="0.081" />
+
+    <Button
+        android:id="@+id/butSaveService"
+        android:layout_width="130dp"
+        android:layout_height="47dp"
+        android:text="сохранить"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.238"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout4"
+        app:layout_constraintVertical_bias="0.085" />
+
     <LinearLayout
         android:id="@+id/linearLayout4"
         android:layout_width="match_parent"
@@ -117,15 +141,4 @@
         </TableLayout>
     </LinearLayout>
 
-    <Button
-        android:id="@+id/butSaveService"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="сохранить"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout4"
-        app:layout_constraintVertical_bias="0.083" />
 </androidx.constraintlayout.widget.ConstraintLayout>
