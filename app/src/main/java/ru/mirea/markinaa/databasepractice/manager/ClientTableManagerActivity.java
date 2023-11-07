@@ -45,5 +45,14 @@ public class ClientTableManagerActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        binding.butNewTableClientManager.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ClientTableManagerActivity.this, ClientNewActivity.class);
+                intent.putExtra("login", loginGet);
+                intent.putExtra("password", passwordGet);
+                startActivity(intent);
+            }
+        });
     }
 }

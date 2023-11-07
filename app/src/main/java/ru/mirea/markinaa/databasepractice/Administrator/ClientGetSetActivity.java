@@ -46,7 +46,7 @@ public class ClientGetSetActivity extends AppCompatActivity {
         binding.textViewIDManager.setVisibility(View.GONE);
         binding.textViewEmailClient.setVisibility(View.GONE);
 
-        binding.butSaveClient.setVisibility(View.GONE);
+        /*binding.butSaveClient.setVisibility(View.GONE);*/
         binding.butDeleteClient.setVisibility(View.GONE);
 
         Intent intentGet = getIntent();
@@ -108,7 +108,7 @@ public class ClientGetSetActivity extends AppCompatActivity {
                     binding.textViewIDManager.setVisibility(View.VISIBLE);
                     binding.textViewEmailClient.setVisibility(View.VISIBLE);
 
-                    binding.butSaveClient.setVisibility(View.VISIBLE);
+                    /*binding.butSaveClient.setVisibility(View.VISIBLE);*/
                     binding.butDeleteClient.setVisibility(View.VISIBLE);
 
                     binding.editTextIdClient.setText(client.getId());
@@ -127,7 +127,7 @@ public class ClientGetSetActivity extends AppCompatActivity {
             }
         });
 
-        binding.butSaveClient.setOnClickListener(new View.OnClickListener() {
+        /*binding.butSaveClient.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Thread gfgThread = new Thread(new Runnable() {
@@ -160,7 +160,7 @@ public class ClientGetSetActivity extends AppCompatActivity {
                 });
                 gfgThread.start();
             }
-        });
+        });*/
         binding.butDeleteClient.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

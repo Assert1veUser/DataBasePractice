@@ -45,5 +45,14 @@ public class EquipmentTableManagerActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        binding.butNewEquipmentTableManager.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(EquipmentTableManagerActivity.this, EquipmentNewActivity.class);
+                intent.putExtra("login", loginGet);
+                intent.putExtra("password", passwordGet);
+                startActivity(intent);
+            }
+        });
     }
 }

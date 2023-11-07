@@ -18,19 +18,8 @@
         app:layout_constraintHorizontal_bias="0.814"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout7"
-        app:layout_constraintVertical_bias="0.15" />
-
-    <Button
-        android:id="@+id/buttonSaveEquipmentOne"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="сохранить"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.252"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout7"
-        app:layout_constraintVertical_bias="0.159" />
+        app:layout_constraintVertical_bias="0.15"
+        android:visibility="gone"/>
 
     <LinearLayout
         android:id="@+id/linearLayout7"
@@ -58,7 +47,7 @@
                 android:inputType="text" />
 
             <EditText
-                android:id="@+id/editTextText2"
+                android:id="@+id/editTextIDServer"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -67,7 +56,7 @@
                 android:inputType="text" />
 
             <Button
-                android:id="@+id/button2"
+                android:id="@+id/butSearchEquipmentManager"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="0"
@@ -90,7 +79,8 @@
                     android:textAlignment="center"
                     android:textColor="#FFFFFF"
                     android:textSize="18sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:visibility="gone" />
 
                 <EditText
                     android:id="@+id/editTextIDServerEquipment"
@@ -98,7 +88,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:ems="10"
-                    android:inputType="text" />
+                    android:inputType="text"
+                    android:visibility="gone" />
 
             </TableRow>
 
@@ -115,7 +106,8 @@
                     android:textAllCaps="false"
                     android:textColor="#FFFFFF"
                     android:textSize="18sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:visibility="gone"/>
 
                 <EditText
                     android:id="@+id/editTextIDRoomEquipment"
@@ -123,7 +115,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:ems="10"
-                    android:inputType="text" />
+                    android:inputType="text"
+                    android:visibility="gone"/>
 
             </TableRow>
 
@@ -139,7 +132,8 @@
                     android:textAlignment="center"
                     android:textColor="#FFFFFF"
                     android:textSize="18sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:visibility="gone"/>
 
                 <EditText
                     android:id="@+id/editTextIDCheckEquipment"
@@ -147,7 +141,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:ems="10"
-                    android:inputType="text" />
+                    android:inputType="text"
+                    android:visibility="gone"/>
             </TableRow>
 
             <TableRow
@@ -162,7 +157,8 @@
                     android:textAlignment="center"
                     android:textColor="#FFFFFF"
                     android:textSize="18sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:visibility="gone"/>
 
                 <EditText
                     android:id="@+id/editTextAmountOfDaysEquipment"
@@ -170,7 +166,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:ems="10"
-                    android:inputType="text" />
+                    android:inputType="text"
+                    android:visibility="gone"/>
             </TableRow>
 
             <TableRow
@@ -185,7 +182,8 @@
                     android:textAlignment="center"
                     android:textColor="#FFFFFF"
                     android:textSize="18sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:visibility="gone"/>
 
                 <EditText
                     android:id="@+id/editTextPriceEquipmentOne"
@@ -193,7 +191,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:ems="10"
-                    android:inputType="text" />
+                    android:inputType="text"
+                    android:visibility="gone"/>
             </TableRow>
 
             <TableRow
@@ -208,7 +207,8 @@
                     android:textAlignment="center"
                     android:textColor="#FFFFFF"
                     android:textSize="18sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:visibility="gone"/>
 
                 <EditText
                     android:id="@+id/editTextNumberOfServers"
@@ -216,7 +216,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:ems="10"
-                    android:inputType="text" />
+                    android:inputType="text"
+                    android:visibility="gone"/>
             </TableRow>
         </TableLayout>
 
