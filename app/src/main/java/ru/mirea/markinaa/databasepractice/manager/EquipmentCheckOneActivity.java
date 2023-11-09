@@ -22,7 +22,7 @@ public class EquipmentCheckOneActivity extends AppCompatActivity {
 
     private ActivityEquipmentCheckOneBinding binding;
     private CheckServer checkServer = new CheckServer();
-    private List idCheck = new ArrayList();
+    /*private List idCheck = new ArrayList();*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,31 +47,26 @@ public class EquipmentCheckOneActivity extends AppCompatActivity {
                                     passwordGet);
                             Statement statement = connection.createStatement();
                             System.out.println("DataBase start");
-                            ResultSet resultSet = statement.executeQuery("SELECT * FROM check_of_client WHERE id_client = " +
+                            /*ResultSet resultSet = statement.executeQuery("SELECT * FROM check_of_client WHERE id_client = " +
 
                                     binding.editTextIDClientCheckOne.getText().toString() +
                                     ";");
                             while (resultSet.next()) {
                                 idCheck.add(resultSet.getString("id"));
                             }
-                            resultSet.close();
-                            for (int i = 0; i <= idCheck.size(); i++){
-                                ResultSet resultSet1 = statement.executeQuery("SELECT * FROM check_server WHERE id_check =" +
-                                        idCheck.get(i).toString() +
-                                        "AND id_server = " +
-                                        binding.editTextIDServer.getText().toString() +
-                                        ";");
-                                while (resultSet1.next()) {
-                                    checkServer.setIdServer(resultSet1.getString("id_server"));
-                                    checkServer.setIdRoom(resultSet1.getString("id_room"));
-                                    checkServer.setIdCheck(resultSet1.getString("id_check"));
-                                    checkServer.setAmountOfDays(resultSet1.getString("amount_of_days"));
-                                    checkServer.setPrice(resultSet1.getString("price"));
-                                    checkServer.setNumberOfServers(resultSet1.getString("number_of_servers"));
-                                }
-                                if (i == idCheck.size() - 1){
-                                    resultSet1.close();
-                                }
+                            resultSet.close();*/
+                            ResultSet resultSet1 = statement.executeQuery("SELECT * FROM check_server WHERE id_check =" +
+                                    binding.editTextIDClientCheckOne +
+                                    "AND id_server = " +
+                                    binding.editTextIDServer.getText().toString() +
+                                    ";");
+                            while (resultSet1.next()) {
+                                checkServer.setIdServer(resultSet1.getString("id_server"));
+                                checkServer.setIdRoom(resultSet1.getString("id_room"));
+                                checkServer.setIdCheck(resultSet1.getString("id_check"));
+                                checkServer.setAmountOfDays(resultSet1.getString("amount_of_days"));
+                                checkServer.setPrice(resultSet1.getString("price"));
+                                checkServer.setNumberOfServers(resultSet1.getString("number_of_servers"));
                             }
                             statement.close();
                             connection.close();

@@ -29,8 +29,8 @@ public class ServiceTableManagerActivity extends AppCompatActivity {
 
         binding.butServiceAllTableManager.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(ServiceTableManagerActivity.this, ServiceTableAnalystActivity.class);
+            public void onClick(View view){
+                Intent intent = new Intent(ServiceTableManagerActivity.this, ServiceCheckAllActivity.class);
                 intent.putExtra("login", loginGet);
                 intent.putExtra("password", passwordGet);
                 startActivity(intent);
