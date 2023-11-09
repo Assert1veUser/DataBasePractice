@@ -95,5 +95,14 @@ public class AdminActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        binding.butTest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(AdminActivity.this, ApplicationActivity.class);
+                intent.putExtra("login", loginGet);
+                intent.putExtra("password", passwordGet);
+                startActivity(intent);
+            }
+        });
     }
 }
