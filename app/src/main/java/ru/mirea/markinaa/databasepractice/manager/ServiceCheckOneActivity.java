@@ -53,8 +53,8 @@ public class ServiceCheckOneActivity extends AppCompatActivity {
                             }
                             resultSet.close();*/
                             ResultSet resultSet1 = statement.executeQuery("SELECT * FROM check_service WHERE id_check =" +
-                                    binding.editTextIdClientServiceOne +
-                                    "AND id_service = " +
+                                    binding.editTextIdClientServiceOne.getText().toString() +
+                                    " AND id_service = " +
                                     binding.editTextIdServiceOne.getText().toString() +
                                     ";");
                             while (resultSet1.next()) {

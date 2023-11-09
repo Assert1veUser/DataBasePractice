@@ -71,29 +71,19 @@ public class EquipmentCheckAllActivity extends AppCompatActivity {
                                     passwordGet);
                             Statement statement = connection.createStatement();
                             System.out.println("DataBase start");
-                    /*ResultSet resultSet = statement.executeQuery("SELECT * FROM check_of_client WHERE id_client = " +
-
-                            binding.editTextIDClient.getText().toString() +
-                            ";");
-                    while (resultSet.next()) {
-                        idCheck.add(resultSet.getString("id"));
-                    }
-                    resultSet.close();*/
-                            for (int i = 0; i <= idCheck.size(); i++){
-                                ResultSet resultSet1 = statement.executeQuery("SELECT * FROM check_server WHERE id_check =" +
-                                        binding.editTextIDClient.getText().toString() +
-                                        ";");
-                                while (resultSet1.next()) {
-                                    idServer.add(resultSet1.getString("id_server"));
-                                    idRoom.add(resultSet1.getString("id_room"));
-                                    amountOfDays.add(resultSet1.getString("amount_of_days"));
-                                    price.add(resultSet1.getString("price"));
-                                    numberOfServers.add(resultSet1.getString("number_of_servers"));
-                                }
-                                if (i == idCheck.size() - 1){
-                                    resultSet1.close();
-                                }
+                            ResultSet resultSet1 = statement.executeQuery("SELECT * FROM check_server WHERE id_check = " +
+                                    binding.editTextIDClient.getText().toString() +
+                                    ";");
+                            while (resultSet1.next()) {
+                                idServer.add(resultSet1.getString("id_server"));
+                                idRoom.add(resultSet1.getString("id_room"));
+                                idCheck.add(resultSet1.getString("id_check"));
+                                amountOfDays.add(resultSet1.getString("amount_of_days"));
+                                price.add(resultSet1.getString("price"));
+                                numberOfServers.add(resultSet1.getString("number_of_servers"));
                             }
+                            System.out.println(idServer.get(0));
+                            resultSet1.close();
                             statement.close();
                             connection.close();
                         } catch (Exception e) {
@@ -103,16 +93,14 @@ public class EquipmentCheckAllActivity extends AppCompatActivity {
                 });
                 gfgThread.start();
 
+
                 try {
                     gfgThread.join();
-                    int BOOKSHELF_ROWS = idCheck.size();
+                    int BOOKSHELF_ROWS = idServer.size();
 
                     TableLayout tableLayout = (TableLayout) findViewById(binding.tableLayoutEquipmentCheck.getId());
-
                     tableRow.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
                             ViewGroup.LayoutParams.WRAP_CONTENT));
-
-
 
                     idServerTextViewName.setText("id_server");
                     idRoomTextViewName.setText("id_room");
@@ -191,6 +179,7 @@ public class EquipmentCheckAllActivity extends AppCompatActivity {
                     tableRow.addView((View) numberOfServersTextViewName, 5);
 
                     tableLayout.addView(tableRow, 0);
+
 
                     for (int i = 0; i < BOOKSHELF_ROWS; i++) {
                         tableRow_all.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,

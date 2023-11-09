@@ -8,6 +8,10 @@ import android.view.View;
 
 import ru.mirea.markinaa.databasepractice.application.ApplicationActivity;
 import ru.mirea.markinaa.databasepractice.databinding.ActivityAdminBinding;
+import ru.mirea.markinaa.databasepractice.manager.EquipmentCheckAllActivity;
+import ru.mirea.markinaa.databasepractice.manager.EquipmentCheckOneActivity;
+import ru.mirea.markinaa.databasepractice.manager.ServiceCheckAllActivity;
+import ru.mirea.markinaa.databasepractice.manager.ServiceCheckOneActivity;
 import ru.mirea.markinaa.databasepractice.task.TaskActivity;
 
 public class AdminActivity extends AppCompatActivity {
@@ -98,7 +102,7 @@ public class AdminActivity extends AppCompatActivity {
         binding.butTest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(AdminActivity.this, ApplicationActivity.class);
+                Intent intent = new Intent(AdminActivity.this, ServiceCheckOneActivity.class);
                 intent.putExtra("login", loginGet);
                 intent.putExtra("password", passwordGet);
                 startActivity(intent);

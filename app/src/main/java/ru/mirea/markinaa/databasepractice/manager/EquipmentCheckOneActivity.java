@@ -55,9 +55,9 @@ public class EquipmentCheckOneActivity extends AppCompatActivity {
                                 idCheck.add(resultSet.getString("id"));
                             }
                             resultSet.close();*/
-                            ResultSet resultSet1 = statement.executeQuery("SELECT * FROM check_server WHERE id_check =" +
-                                    binding.editTextIDClientCheckOne +
-                                    "AND id_server = " +
+                            ResultSet resultSet1 = statement.executeQuery("SELECT * FROM check_server WHERE id_check = " +
+                                    binding.editTextIDClientCheckOne.getText().toString() +
+                                    " AND id_server = " +
                                     binding.editTextIDServer.getText().toString() +
                                     ";");
                             while (resultSet1.next()) {
@@ -86,7 +86,7 @@ public class EquipmentCheckOneActivity extends AppCompatActivity {
                     binding.textViewPriceEquipmentOne.setVisibility(View.VISIBLE);
                     binding.textViewNumberOfServers.setVisibility(View.VISIBLE);
 
-                    binding.editTextIDServer.setVisibility(View.VISIBLE);
+                    binding.editTextIDServerEquipment.setVisibility(View.VISIBLE);
                     binding.editTextIDRoomEquipment.setVisibility(View.VISIBLE);
                     binding.editTextIDCheckEquipment.setVisibility(View.VISIBLE);
                     binding.editTextAmountOfDaysEquipment.setVisibility(View.VISIBLE);
@@ -95,7 +95,7 @@ public class EquipmentCheckOneActivity extends AppCompatActivity {
 
                     binding.buttonDeleteEquipmentOne.setVisibility(View.VISIBLE);
 
-                    binding.editTextIDServer.setText(checkServer.getIdServer());
+                    binding.editTextIDServerEquipment.setText(checkServer.getIdServer());
                     binding.editTextIDRoomEquipment.setText(checkServer.getIdRoom());
                     binding.editTextIDCheckEquipment.setText(checkServer.getIdCheck());
                     binding.editTextAmountOfDaysEquipment.setText(checkServer.getAmountOfDays());
