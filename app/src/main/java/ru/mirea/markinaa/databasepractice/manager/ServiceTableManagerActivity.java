@@ -39,7 +39,16 @@ public class ServiceTableManagerActivity extends AppCompatActivity {
         binding.butServiceOneTableManager.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(ServiceTableManagerActivity.this, ServiceActivity.class);
+                Intent intent = new Intent(ServiceTableManagerActivity.this, ServiceCheckOneActivity.class);
+                intent.putExtra("login", loginGet);
+                intent.putExtra("password", passwordGet);
+                startActivity(intent);
+            }
+        });
+        binding.butServiceNewTableManager.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ServiceTableManagerActivity.this, ServiceNewActivity.class);
                 intent.putExtra("login", loginGet);
                 intent.putExtra("password", passwordGet);
                 startActivity(intent);
