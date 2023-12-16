@@ -44,14 +44,6 @@ public class ServiceCheckOneActivity extends AppCompatActivity {
                                     passwordGet);
                             Statement statement = connection.createStatement();
                             System.out.println("DataBase start");
-                            /*ResultSet resultSet = statement.executeQuery("SELECT * FROM check_of_client WHERE id_client = " +
-
-                                    binding.editTextIDClientCheckOne.getText().toString() +
-                                    ";");
-                            while (resultSet.next()) {
-                                idCheck.add(resultSet.getString("id"));
-                            }
-                            resultSet.close();*/
                             ResultSet resultSet1 = statement.executeQuery("SELECT * FROM check_service WHERE id_check =" +
                                     binding.editTextIdClientServiceOne.getText().toString() +
                                     " AND id_service = " +

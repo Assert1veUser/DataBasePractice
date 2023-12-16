@@ -8,6 +8,8 @@ import android.view.View;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.util.Arrays;
+import java.util.List;
 
 import ru.mirea.markinaa.databasepractice.Administrator.AdminActivity;
 import ru.mirea.markinaa.databasepractice.analyst.AnalystActivity;
@@ -80,6 +82,13 @@ public class StartActivity extends AppCompatActivity {
             return null;
         }
         return str.length() < n ? str : str.substring(0, n);
+    }
+    public static List<String> employeeNChars(String str){
+        if (str == null) {
+            return null;
+        }
+        str = str.replaceAll("[^0-9]+", " ");
+        return Arrays.asList(str.trim().split(" "));
     }
 
 }

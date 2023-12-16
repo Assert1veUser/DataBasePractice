@@ -71,26 +71,21 @@ public class ServiceCheckAllActivity extends AppCompatActivity {
                                     passwordGet);
                             Statement statement = connection.createStatement();
                             System.out.println("DataBase start");
-                    /*ResultSet resultSet = statement.executeQuery("SELECT * FROM check_of_client WHERE id_client = " +
-
-                            binding.editTextIDClient.getText().toString() +
-                            ";");
-                    while (resultSet.next()) {
-                        idCheck.add(resultSet.getString("id"));
-                    }
-                    resultSet.close();*/
-                            ResultSet resultSet1 = statement.executeQuery("SELECT * FROM check_service WHERE id_check =" +
-                                    binding.editTextIDClientService.getText().toString() +
-                                    ";");
-                            while (resultSet1.next()) {
-                                idService.add(resultSet1.getString("id_service"));
-                                idRoom.add(resultSet1.getString("id_room"));
-                                idCheck.add(resultSet1.getString("id_check"));
-                                amountOfDays.add(resultSet1.getString("amount_of_days"));
-                                price.add(resultSet1.getString("price"));
-                                numberOfService.add(resultSet1.getString("number_of_service"));
+                            for (int i = 0; i <= idCheck.size(); i++){
+                                ResultSet resultSet1 = statement.executeQuery("SELECT * FROM check_servicr WHERE id_check =" +
+                                        binding.butSearchIdClientService.getText().toString() +
+                                        ";");
+                                while (resultSet1.next()) {
+                                    idService.add(resultSet1.getString("id_service"));
+                                    idRoom.add(resultSet1.getString("id_room"));
+                                    amountOfDays.add(resultSet1.getString("amount_of_days"));
+                                    price.add(resultSet1.getString("price"));
+                                    numberOfService.add(resultSet1.getString("number_of_service"));
+                                }
+                                if (i == idCheck.size() - 1){
+                                    resultSet1.close();
+                                }
                             }
-                            resultSet1.close();
                             statement.close();
                             connection.close();
                         } catch (Exception e) {
@@ -101,7 +96,7 @@ public class ServiceCheckAllActivity extends AppCompatActivity {
                 gfgThread.start();
                 try {
                     gfgThread.join();
-                    int BOOKSHELF_ROWS = idService.size();
+                    int BOOKSHELF_ROWS = idCheck.size();
 
                     TableLayout tableLayout = (TableLayout) findViewById(binding.tableLayoutsService.getId());
 
